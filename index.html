@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+  <div class="product-container">
+    <img class="product-image" src="intern front.jpeg" alt="Product Image">
+    <div class="thumbnail-container">
+      <img class="thumbnail1" src="thumbnail1.jpeg" alt="Thumbnail 1">
+      <img class="thumbnail" src="thumbnail2.jpeg" alt="Thumbnail 2">
+      <img class="thumbnail" src="thumbnail3.jpeg" alt="Thumbnail 3">
+
+      <img class="thumbnail" src="thumbnail4.jpeg" alt="Thumbnail 4">
+    </div>
+
+    <div class="vendor-title-price-container">
+      <p class="vendor">Marmeto</p>
+      <p class="title">Embrace Sideboard</p>
+      <div class="product-price">
+        <span class="price-label">$</span>
+        <span class="price-value">12999.00</span>
+        <span class="price-discount">35% Off</span>
+      </div>
+      <p class="compare-at-price">$<span id="compare-at-price">29999.00</span></p>
+
+    </div>
+    <div class="variants-container">
+      <p class="clr">Choose a Color</p>
+      <div class="color-selector">
+
+        <div class="color-box color1"></div>
+        <div class="color-box color2"></div>
+        <div class="color-box color3"></div>
+        <div class="color-box color4"></div>
+      </div>
+      <div class="size-selector">
+        <p>Choose a Size</p>
+        <input type="radio" id="small" name="size" value="small">
+        <label for="small" class="size-label">Small</label>
+
+        <input type="radio" id="medium" name="size" value="medium">
+        <label for="medium" class="size-label">Medium</label>
+
+        <input type="radio" id="large" name="size" value="large">
+        <label for="large" class="size-label">Large</label>
+
+        <input type="radio" id="x-large" name="size" value="x-large">
+        <label for="x-large" class="size-label">Extra Large</label>
+
+        <input type="radio" id="XXL" name="size" value="XXL">
+        <label for="XXL" class="size-label">XXL</label>
+
+      </div>
+    </div>
+
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity()">-</button>
+      <span id="quantity">1</span>
+
+      <button onclick="incrementQuantity()">+</button>
+    </div>
+    <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+    <div class="add-to-cart-message">Product added to cart</div>
+    <div class="description-container">
+      <p class="para">The Embrace Sideboard is a stylish wear. With a top cloth designed to provide superior protection
+        and look
+        great, this i storage solution is both functional and attractive. It fits seamlessly into any home decor, with
+        clean lines and a timeless look. Crafted from premium materials for a combination of style, durability, and
+        reliability.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var selectedColor = null;
+    var selectedSize = null;
+
+    function addToCart() {
+      if (selectedColor && selectedSize) {
+        var addToCartMessage = document.querySelector('.add-to-cart-message');
+        addToCartMessage.textContent = 'Product added to cart: Embrace Sideboard with Color ' + selectedColor +
+          ' and Size ' + selectedSize;
+        addToCartMessage.style.display = 'block';
+      } else {
+        alert('Please select color and size before adding to cart.');
+      }
+    }
+
+    function selectColor(button) {
+      var colorButtons = document.querySelectorAll('.color-box');
+      colorButtons.forEach(function (btn) {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+      selectedColor = button.getAttribute('data-color');
+    }
+
+    function selectSize(button) {
+      var sizeButtons = document.querySelectorAll('.size-label');
+      sizeButtons.forEach(function (btn) {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+      selectedSize = button.innerText;
+    }
+
+    function decrementQuantity() {
+      var quantitySpan = document.getElementById('quantity');
+      var quantity = parseInt(quantitySpan.innerText, 10);
+
+      if (quantity > 1) {
+        quantity--;
+        quantitySpan.innerText = quantity;
+      }
+    }
+
+    function incrementQuantity() {
+      var quantitySpan = document.getElementById('quantity');
+      var quantity = parseInt(quantitySpan.innerText, 10);
+
+      quantity++;
+      quantitySpan.innerText = quantity;
+    }
+
+    // Attach event listeners
+    document.querySelector('.add-to-cart').addEventListener('click', addToCart);
+
+    var colorButtons = document.querySelectorAll('.color-box');
+    colorButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectColor(
+
+  </script>
+</body>
+
+</html>
